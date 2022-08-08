@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package tasks;
+
+service TasksService {
+  rpc FindMany (GetTasksFilterDto) returns (stream Task);
+}
+
+message GetTasksFilterDto {
+  string status = 1;
+  string search = 2;
+}
+
+message Task {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string status = 4;
+}
